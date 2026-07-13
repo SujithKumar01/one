@@ -11,10 +11,11 @@
 	<properties>
 		<docker.image.prefix>kammana</docker.image.prefix>
 		<sonar.host.url>http://18.181.164.81:9000/</sonar.host.url>
-
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
-
 		
 		<dependency>
 			<groupId>junit</groupId>
@@ -22,8 +23,26 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-
 	</dependencies>
+
+	<build>
+		<finalName>myweb</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.4.0</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.11.0</version>
+			</plugin>
+		</plugins>
+	</build>
 	
 	<distributionManagement>
 		 <snapshotRepository>
@@ -44,6 +63,5 @@
 		<url>http://repo1.maven.org/maven2</url>
 	    </pluginRepository>
 	</pluginRepositories>
-
 	
 </project>
